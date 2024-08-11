@@ -1,5 +1,14 @@
+import java.util.Scanner;
+
 public class Duch {
     public static void main(String[] args) {
-        System.out.println("Hello, I am Duch.\nWhat can I do for you?\n\nBye. Hope to see you again");
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Hello, I am Duch.\nWhat can I do for you?");
+        while (true) {
+            String echo = scanner.nextLine();
+            if (echo.equals("bye")) break;
+            System.out.println(echo);
+        }
+        System.out.println("Bye. Hope to see you again");
     }
 }
