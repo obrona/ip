@@ -6,7 +6,7 @@ public class Printer {
     // eg "line1\nline2\n" is valid, "line1\nline2" is invalid
     
 
-    void print(String text) {
+    public void print(String text) {
         System.out.println(space + "---------------------------------------------");
         int s = 0;
         int e = 0;
