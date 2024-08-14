@@ -1,15 +1,9 @@
-import java.util.ArrayList;
 import java.util.Scanner;
 
 
 
 public class Duch {
     CommandHandler commandHandler = new CommandHandler();
-
-    
-
-
-    
 
     public static void main(String[] args) {
         Duch duch = new Duch();
