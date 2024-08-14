@@ -3,6 +3,7 @@ import java.util.Scanner;
 
 
 public class Duch {
+    Printer printer = new Printer();
     CommandHandler commandHandler = new CommandHandler();
 
     public static void main(String[] args) {
@@ -12,10 +13,15 @@ public class Duch {
         while (true) {
             String text = scanner.nextLine();
             if (text.equals("bye")) break;
-            duch.commandHandler.handleCommand(text);
-
-
-        }
+            
+            try {
+                duch.commandHandler.handleCommand(text);
+            } catch (Exception e) {
+                duch.printer.print(e.getMessage());
+            }
+        }    
+         
+        
         scanner.close();
         System.out.println("Bye. Hope to see you again");
     }
