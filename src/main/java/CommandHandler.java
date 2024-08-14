@@ -1,5 +1,7 @@
 import java.util.*;
 
+import javax.management.RuntimeErrorException;
+
 import Task.*;
 
 
@@ -43,18 +45,20 @@ public class CommandHandler {
 
     }
 
-    void deadline(String[] arr) {
+    void deadline(String[] arr) throws DuchException {
         int byIdx = find(arr, "/by");
+        if (byIdx == -1) throw new DuchException("Invalid Command. Please re-enter command\n");
+        
         Task t = new Deadline(concat(arr, 1, byIdx), concat(arr, byIdx + 1, arr.length));
         tasks.add(t);
         printAddTask(t);
-    ;
     }
 
-    void event(String[] arr) {
+    void event(String[] arr) throws DuchException {
         int fromIdx = find(arr, "/from");
         int toIdx = find(arr, "/to");
-
+        if (fromIdx == -1 || toIdx == -1) throw new DuchException("Invalid Command. Please re-enter command\n");
+        
         Event t = new Event(concat(arr, 1, fromIdx), concat(arr, fromIdx + 1, toIdx), concat(arr, toIdx + 1, arr.length));
         tasks.add(t);
         printAddTask(t);
@@ -82,7 +86,7 @@ public class CommandHandler {
         printUnMark(t);
     }
 
-    void handleCommand(String cmd) {
+    void handleCommand(String cmd) throws DuchException {
         String[] splitted = cmd.split(" ");
         String action = splitted[0];
         if (action.equals("list")) list(splitted);
@@ -91,6 +95,7 @@ public class CommandHandler {
         else if (action.equals("event")) event(splitted);
         else if (action.equals("mark")) mark(splitted);
         else if (action.equals("unmark")) unmark(splitted);
+        else throw new DuchException("Invalid Command. Please re-enter command\n");
         
     }
 
