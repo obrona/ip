@@ -37,12 +37,14 @@ public class CommandHandler {
         p.print("OK, I've marked this task as not done yet:\n  " + t.toString() + "\n");
     }
 
+    void printDelete(Task t) {
+        p.print("Noted. I have removed this task\n  " + t.toString() + "\n");
+    }
+
     void todo(String[] arr) {
         Todo t = new Todo(concat(arr, 1, arr.length));
         tasks.add(t);
         printAddTask(t);
-
-
     }
 
     void deadline(String[] arr) throws DuchException {
@@ -86,6 +88,13 @@ public class CommandHandler {
         printUnMark(t);
     }
 
+    void delete(String[] arr) {
+        int idx = Integer.parseInt(arr[1]);
+        Task t = tasks.get(idx - 1);
+        printDelete(t);
+        tasks.remove(idx - 1);
+    }
+
     void handleCommand(String cmd) throws DuchException {
         String[] splitted = cmd.split(" ");
         String action = splitted[0];
@@ -95,6 +104,7 @@ public class CommandHandler {
         else if (action.equals("event")) event(splitted);
         else if (action.equals("mark")) mark(splitted);
         else if (action.equals("unmark")) unmark(splitted);
+        else if (action.equals("delete")) delete(splitted);
         else throw new DuchException("Invalid Command. Please re-enter command\n");
         
     }
