@@ -15,6 +15,7 @@ public class Duch {
         duch.storageHandler.openFile();
         Scanner scanner = new Scanner(System.in);
         System.out.println("Hello, I am Duch.\nWhat can I do for you?");
+        System.out.println("Please input your dates in d/MM/yyyy HHmm");
         while (true) {
             String text = scanner.nextLine();
             if (text.equals("bye")) break;
@@ -22,7 +23,7 @@ public class Duch {
             try {
                 duch.commandHandler.handleCommand(text);
             } catch (Exception e) {
-                duch.printer.print(e.getMessage());
+                duch.printer.print(e.getMessage() + "\n");
             }
         }    
          

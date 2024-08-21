@@ -10,6 +10,7 @@ import Task.*;
 
 public class Storage {
     ArrayList<Task> tasks;
+    String pathString = "../data/tasks";
 
     Storage(ArrayList<Task> lst) {
         tasks = lst;
@@ -32,7 +33,7 @@ public class Storage {
     }
 
     void openFile() {
-        Path path = Paths.get("../../../data/tasks");
+        Path path = Paths.get(pathString);
         Path directory = path.getParent();
         try {
             if (Files.notExists(directory)) {
@@ -49,6 +50,8 @@ public class Storage {
             Scanner scanner = new Scanner(Files.newBufferedReader(path));
             while (scanner.hasNextLine()) {
                 String str = scanner.nextLine();
+                if (str.length() == 0) break;
+                
                 char type = str.charAt(0);
                 if (type == 'T') parseTodo(str);
                 else if (type == 'E') parseEvent(str);
@@ -61,8 +64,10 @@ public class Storage {
     }
 
     // only call this after calling openFile, because I assume ../../../data/tasks is created already
+    // the relative file path is relative to the path of the compiled class files, so if compiled class files 
+    // are somewhere else, good luck
     void saveTasks() {
-        Path path = Paths.get("../../../data/tasks");
+        Path path = Paths.get(pathString);
         try {
             // clear existing contents
             Files.write(path, "".getBytes());

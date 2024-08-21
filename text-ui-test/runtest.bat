@@ -1,5 +1,8 @@
 @ECHO OFF
 
+REM clear data/task first
+if exist ..\data\tasks type nul > ..\data\tasks
+
 REM create bin directory if it doesn't exist
 if not exist ..\bin mkdir ..\bin
 

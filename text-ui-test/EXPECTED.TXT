@@ -1,5 +1,6 @@
 Hello, I am Duch.
 What can I do for you?
+Please input your dates in d/MM/yyyy HHmm
     ---------------------------------------------
     Got it. I've added this task
       [T][ ] borrow book
@@ -8,20 +9,20 @@ What can I do for you?
 
     ---------------------------------------------
     Got it. I've added this task
-      [D][ ] return book (by: Sunday)
+      [D][ ] return book (by: Aug-20-2024 1700)
     Now you have 2 tasks in the list
     ---------------------------------------------
 
     ---------------------------------------------
     Got it. I've added this task
-      [E][ ] project meeting (from: Mon 2pm to: 4pm)
+      [E][ ] project meeting (from: Aug-20-2024 1700 to: Sep-20-2024 1700)
     Now you have 3 tasks in the list
     ---------------------------------------------
 
     ---------------------------------------------
     1.[T][ ] borrow book
-    2.[D][ ] return book (by: Sunday)
-    3.[E][ ] project meeting (from: Mon 2pm to: 4pm)
+    2.[D][ ] return book (by: Aug-20-2024 1700)
+    3.[E][ ] project meeting (from: Aug-20-2024 1700 to: Sep-20-2024 1700)
     ---------------------------------------------
 
 Bye. Hope to see you again
