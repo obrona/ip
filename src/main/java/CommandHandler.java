@@ -1,13 +1,14 @@
 import java.util.*;
-
-import javax.management.RuntimeErrorException;
-
 import Task.*;
 
 
 public class CommandHandler {
     ArrayList<Task> tasks = new ArrayList<>();
     Printer p = new Printer();
+
+    CommandHandler(ArrayList<Task> lst) {
+        tasks = lst;
+    }
 
     String concat(String[] arr, int s, int e) {
         String out = "";

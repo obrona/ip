@@ -1,13 +1,18 @@
 import java.util.Scanner;
+import java.util.*;
+import Task.*;
 
 
 
 public class Duch {
+    ArrayList<Task> tasks = new ArrayList<>();
     Printer printer = new Printer();
-    CommandHandler commandHandler = new CommandHandler();
+    CommandHandler commandHandler = new CommandHandler(tasks);
+    Storage storageHandler = new Storage(tasks);
 
     public static void main(String[] args) {
         Duch duch = new Duch();
+        duch.storageHandler.openFile();
         Scanner scanner = new Scanner(System.in);
         System.out.println("Hello, I am Duch.\nWhat can I do for you?");
         while (true) {
@@ -23,6 +28,7 @@ public class Duch {
          
         
         scanner.close();
+        duch.storageHandler.saveTasks();
         System.out.println("Bye. Hope to see you again");
     }
 }
