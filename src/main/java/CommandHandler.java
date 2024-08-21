@@ -42,7 +42,9 @@ public class CommandHandler {
         p.print("Noted. I have removed this task\n  " + t.toString() + "\n");
     }
 
-    void todo(String[] arr) {
+    void todo(String[] arr) throws DuchException {
+        if (arr.length == 1) throw new DuchException("The description of todo cannot be empty");
+        
         Todo t = new Todo(concat(arr, 1, arr.length));
         tasks.add(t);
         printAddTask(t);
@@ -50,7 +52,7 @@ public class CommandHandler {
 
     void deadline(String[] arr) throws DuchException {
         int byIdx = find(arr, "/by");
-        if (byIdx == -1) throw new DuchException("Invalid Command. Please re-enter command\n");
+        if (byIdx == -1) throw new DuchException("/by date is not found");
         
         Task t = new Deadline(concat(arr, 1, byIdx), concat(arr, byIdx + 1, arr.length));
         tasks.add(t);
@@ -60,7 +62,7 @@ public class CommandHandler {
     void event(String[] arr) throws DuchException {
         int fromIdx = find(arr, "/from");
         int toIdx = find(arr, "/to");
-        if (fromIdx == -1 || toIdx == -1) throw new DuchException("Invalid Command. Please re-enter command\n");
+        if (fromIdx == -1 || toIdx == -1) throw new DuchException("/from date (and/or) /to date is not found");
         
         Event t = new Event(concat(arr, 1, fromIdx), concat(arr, fromIdx + 1, toIdx), concat(arr, toIdx + 1, arr.length));
         tasks.add(t);
@@ -106,7 +108,7 @@ public class CommandHandler {
         else if (action.equals("mark")) mark(splitted);
         else if (action.equals("unmark")) unmark(splitted);
         else if (action.equals("delete")) delete(splitted);
-        else throw new DuchException("Invalid Command. Please re-enter command\n");
+        else throw new DuchException("Invalid Command. Please re-enter command");
         
     }
 

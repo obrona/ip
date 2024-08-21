@@ -1,24 +1,24 @@
 package Task;
 
 public class Deadline extends Task {
-    String by;
+    Date by;
 
     public Deadline(String name, String by, boolean done) {
-        super(name, done);
-        this.by = by;
+        this(name, by);
+        isDone = done;
     }
 
     public Deadline(String name, String by) {
         super(name);
-        this.by = by;
+        this.by = new Date(by);
     }
 
     public String toString() {
-        return (isDone) ? "[D][X] " + task + " (by: " + by + ")" : "[D][ ] " + task + " (by: " + by + ")";
+        return (isDone) ? "[D][X] " + task + " (by: " + by.toString() + ")" : "[D][ ] " + task + " (by: " + by.toString() + ")";
     }
 
     public String toStore() {
-        return (isDone) ? "D|1|" + task + "|" + by : "D|0|" + task + "|" + by;
+        return (isDone) ? "D|1|" + task + "|" + by.toStore() : "D|0|" + task + "|" + by.toStore();
     }
 
 
