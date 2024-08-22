@@ -1,5 +1,7 @@
+package Duch;
+
 import java.util.ArrayList;
-import Task.*;
+import Duch.Task.*;
 
 
 public class TaskList extends ArrayList<Task> {

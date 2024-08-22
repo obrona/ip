@@ -1,3 +1,5 @@
+package Duch;
+
 public class Ui {
     //String text;
     String space = "    ";

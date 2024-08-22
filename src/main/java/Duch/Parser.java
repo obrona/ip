@@ -1,4 +1,6 @@
-import Task.*;
+package Duch;
+
+import Duch.Task.*;
 
 
 public class Parser {
