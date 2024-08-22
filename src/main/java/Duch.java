@@ -1,13 +1,12 @@
 import java.util.Scanner;
-import java.util.*;
-import Task.*;
+
 
 
 
 public class Duch {
-    ArrayList<Task> tasks = new ArrayList<>();
-    Printer printer = new Printer();
-    CommandHandler commandHandler = new CommandHandler(tasks);
+    TaskList tasks = new TaskList();
+    Ui printer = new Ui();
+    Parser commandHandler = new Parser(tasks);
     Storage storageHandler = new Storage(tasks);
 
     public static void main(String[] args) {

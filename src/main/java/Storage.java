@@ -3,36 +3,36 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.nio.file.StandardOpenOption;
-import java.util.*;
+import java.util.Scanner;
 import Task.*;
 
 
 
 public class Storage {
-    ArrayList<Task> tasks;
+   TaskList tasks;
     String pathString = "../data/tasks";
 
-    Storage(ArrayList<Task> lst) {
+    public Storage(TaskList lst) {
         tasks = lst;
     }
 
-    void parseTodo(String str) {
+    public void parseTodo(String str) {
         // "|" is one of the special expressions in regex, so need \\
         String[] splitted = str.split("\\|");
         tasks.add(new Todo(splitted[2], splitted[1].equals("1")));
     }
 
-    void parseDeadline(String str) {
+    public void parseDeadline(String str) {
         String[] splitted = str.split("\\|");
         tasks.add(new Deadline(splitted[2], splitted[3], splitted[1].equals("1")));
     }
 
-    void parseEvent(String str) {
+    public void parseEvent(String str) {
         String[] splitted = str.split("\\|");
         tasks.add(new Event(splitted[2], splitted[3], splitted[4], splitted[1].equals("1")));
     }
 
-    void openFile() {
+    public void openFile() {
         Path path = Paths.get(pathString);
         Path directory = path.getParent();
         try {
@@ -66,7 +66,7 @@ public class Storage {
     // only call this after calling openFile, because I assume ../../../data/tasks is created already
     // the relative file path is relative to the path of the compiled class files, so if compiled class files 
     // are somewhere else, good luck
-    void saveTasks() {
+    public void saveTasks() {
         Path path = Paths.get(pathString);
         try {
             // clear existing contents
