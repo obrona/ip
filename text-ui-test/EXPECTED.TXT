@@ -37,4 +37,8 @@ Please input your dates in d/MM/yyyy HHmm
     /from date (and/or) /to date is not found
     ---------------------------------------------
 
+    ---------------------------------------------
+    Invalid Date Format
+    ---------------------------------------------
+
 Bye. Hope to see you again

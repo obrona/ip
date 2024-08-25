@@ -13,7 +13,7 @@ import Duch.Task.*;
 
 public class Storage {
    TaskList tasks;
-    String pathString = "../data/tasks";
+    String pathString = "./data/tasks";
 
     public Storage(TaskList lst) {
         tasks = lst;

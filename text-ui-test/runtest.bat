@@ -1,7 +1,7 @@
 @ECHO OFF
 
 REM clear data/task first
-if exist ..\data\tasks type nul > ..\data\tasks
+if exist .\data\tasks type nul > .\data\tasks
 
 REM create bin directory if it doesn't exist
 if not exist ..\bin mkdir ..\bin
@@ -22,3 +22,6 @@ java -classpath ..\bin Duch < input.txt > ACTUAL.TXT
 
 REM compare the output to the expected output
 FC ACTUAL.TXT EXPECTED.TXT
+
+REM delete the data folder
+RD /s /q .\data

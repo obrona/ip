@@ -55,7 +55,11 @@ public class Parser {
         int byIdx = find(arr, "/by");
         if (byIdx == -1) throw new DuchException("/by date is not found");
         
-        Task t = new Deadline(concat(arr, 1, byIdx), concat(arr, byIdx + 1, arr.length));
+        String task = concat(arr, 1, byIdx);
+        String by = concat(arr, byIdx + 1, arr.length);
+        if (task.equals("")) throw new DuchException("The description of deadline cannot be empty");
+        
+        Task t = new Deadline(task, by);
         tasks.add(t);
         printAddTask(t);
     }
@@ -64,8 +68,13 @@ public class Parser {
         int fromIdx = find(arr, "/from");
         int toIdx = find(arr, "/to");
         if (fromIdx == -1 || toIdx == -1) throw new DuchException("/from date (and/or) /to date is not found");
+
+        String task = concat(arr, 1, fromIdx);
+        String from = concat(arr, fromIdx + 1, toIdx);
+        String to = concat(arr, toIdx + 1, arr.length);
+        if (task.equals("")) throw new DuchException("The description of event cannot be empty");
         
-        Event t = new Event(concat(arr, 1, fromIdx), concat(arr, fromIdx + 1, toIdx), concat(arr, toIdx + 1, arr.length));
+        Event t = new Event(task, from, to);
         tasks.add(t);
         printAddTask(t);
     }

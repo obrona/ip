@@ -1,3 +1,4 @@
+import java.time.DateTimeException;
 import java.util.Scanner;
 
 import Duch.Parser;
@@ -26,6 +27,8 @@ public class Duch {
             
             try {
                 duch.commandHandler.handleCommand(text);
+            } catch (DateTimeException e) {
+                duch.printer.print("Invalid Date Format\n");
             } catch (Exception e) {
                 duch.printer.print(e.getMessage() + "\n");
             }
