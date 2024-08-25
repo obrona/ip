@@ -13,8 +13,6 @@ public class ParserTest {
         }
     }
     
-    
-    
     @Test
     public void testConcat() {
         Parser parser = new Parser(new TaskListStub());

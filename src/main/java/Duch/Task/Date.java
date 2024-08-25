@@ -13,11 +13,22 @@ public class Date {
         dateTime = LocalDateTime.parse(str, inputFormatter);
     }
 
+    /**
+     * Outputs the date formatted in MMM-dd-yyyy HHmm.
+     * 
+     * @return The string
+     */
     public String toString() {
         return dateTime.format(outputFormatter);
     }
 
-    // when storing, print the date in the input format, so the constructor can parse it properly
+    
+    /**
+     * Outputs the date formatted in d/MM/yyyy HHmm.
+     * For storage
+     * 
+     * @return The string
+     */
     public String toStore() {
         return dateTime.format(inputFormatter);
     }

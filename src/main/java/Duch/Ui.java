@@ -1,13 +1,18 @@
 package Duch;
 
+/**
+ * Handles formatting text that needs to be printed on stdout
+ */
 public class Ui {
-    //String text;
     String space = "    ";
     
-    // the text must be demarcated by \n
-    // eg "line1\nline2\n" is valid, "line1\nline2" is invalid
-    
-
+    /**
+     * Prettify the text and prints it to stdout.
+     * The text must be demarcated by "\n" .
+     * Eg "line1\nline2\n" is valid, "line1\nline2" is invalid.
+     * 
+     * @param text Text you want to print
+     */
     public void print(String text) {
         System.out.println(space + "---------------------------------------------");
         int s = 0;
@@ -23,8 +28,4 @@ public class Ui {
         }
         System.out.println(space + "---------------------------------------------\n");
     }
-
-    /*public static void main(String[] args) {
-        new Printer("1. read book\n2. return book\n").print();
-    }*/
 }

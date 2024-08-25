@@ -10,7 +10,10 @@ import java.util.Scanner;
 import Duch.Task.*;
 
 
-
+/**
+ * Storage handles reading the stored text from ./data/tasks and processes them into Task objects.
+ * Also handles opening the ./data/text file and saving Task when closing Duch
+ */
 public class Storage {
    TaskList tasks;
     String pathString = "./data/tasks";
@@ -18,23 +21,42 @@ public class Storage {
     public Storage(TaskList lst) {
         tasks = lst;
     }
-
+    
+    /**
+     * Parse a stored todo string
+     * 
+     * @param str The stored todo
+     */
     public void parseTodo(String str) {
         // "|" is one of the special expressions in regex, so need \\
         String[] splitted = str.split("\\|");
         tasks.add(new Todo(splitted[2], splitted[1].equals("1")));
     }
 
+    /**
+     * Parse a stored deadline string
+     * 
+     * @param str The stored deadline string
+     * 
+     */
     public void parseDeadline(String str) {
         String[] splitted = str.split("\\|");
         tasks.add(new Deadline(splitted[2], splitted[3], splitted[1].equals("1")));
     }
 
+    /**
+     * Parse a stored event string
+     * 
+     * @param str The stored event string
+     */
     public void parseEvent(String str) {
         String[] splitted = str.split("\\|");
         tasks.add(new Event(splitted[2], splitted[3], splitted[4], splitted[1].equals("1")));
     }
 
+    /**
+     * Open the ./data/text file, where the tasks will be stored
+     */
     public void openFile() {
         Path path = Paths.get(pathString);
         Path directory = path.getParent();
@@ -66,9 +88,11 @@ public class Storage {
         } 
     }
 
-    // only call this after calling openFile, because I assume ../../../data/tasks is created already
-    // the relative file path is relative to the path of the compiled class files, so if compiled class files 
-    // are somewhere else, good luck
+    /**
+     * Only call this after calling openFile, because I assume ../../../data/tasks is created already.
+     * The relative file path is relative to the path of the compiled class files, so if compiled class files
+     * are somewhere else, good luck.
+     */
     public void saveTasks() {
         Path path = Paths.get(pathString);
         try {
