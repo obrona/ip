@@ -17,7 +17,6 @@ public class Date {
         return dateTime.format(outputFormatter);
     }
 
-    // when storing, print the date in the input format, so the constructor can parse it properly
     public String toStore() {
         return dateTime.format(inputFormatter);
     }
@@ -29,6 +28,5 @@ public class Date {
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }
-        //System.out.println(new Date(d).toString());
     }
 }

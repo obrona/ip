@@ -66,9 +66,6 @@ public class Storage {
         } 
     }
 
-    // only call this after calling openFile, because I assume ../../../data/tasks is created already
-    // the relative file path is relative to the path of the compiled class files, so if compiled class files 
-    // are somewhere else, good luck
     public void saveTasks() {
         Path path = Paths.get(pathString);
         try {
