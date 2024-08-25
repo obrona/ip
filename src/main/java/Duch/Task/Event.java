@@ -17,12 +17,12 @@ public class Event extends Task {
 
     public String toString() {
         return (isDone) ? "[E][X] " + task + " (from: " + from.toString() + " to: " + to.toString() + ")" 
-            : "[E][ ] " + task + " (from: " + from.toString() + " to: " + to.toString() + ")";
+                : "[E][ ] " + task + " (from: " + from.toString() + " to: " + to.toString() + ")";
     }
 
     public String toStore() {
         return (isDone) ? "E|1|" + task + "|" + from.toStore() + "|" + to.toStore() 
-            : "E|0|" + task + "|" + from.toStore() + "|" + to.toStore();
+                : "E|0|" + task + "|" + from.toStore() + "|" + to.toStore();
     }
 
 }

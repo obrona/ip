@@ -18,6 +18,10 @@ public abstract class Task {
         isDone = val;
     }
 
+    public String getTask() {
+        return task;
+    }
+
     public abstract String toString();
 
     public abstract String toStore();

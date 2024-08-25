@@ -108,6 +108,21 @@ public class Parser {
         tasks.remove(idx - 1);
     }
 
+    public void find(String[] arr) throws DuchException {
+        if (arr.length == 1) {
+            throw new DuchException("The keyword for find cannot be empty");
+        }
+
+        String out = "Here are the matching tasks in your list:\n";
+        for (int i = 0; i < tasks.size(); i ++) {
+            Task task = tasks.get(i);
+            if (task.getTask().contains(arr[1])) {
+                out += (i + 1) + "." + task.toString() + "\n";
+            }
+        }
+        p.print(out); 
+    }
+
     public void handleCommand(String cmd) throws DuchException {
         String[] splitted = cmd.split(" ");
         String action = splitted[0];
@@ -118,6 +133,9 @@ public class Parser {
         else if (action.equals("mark")) mark(splitted);
         else if (action.equals("unmark")) unmark(splitted);
         else if (action.equals("delete")) delete(splitted);
+        else if (action.equals("find")) {
+            find(splitted);
+        }
         else throw new DuchException("Invalid Command. Please re-enter command");
         
     }
