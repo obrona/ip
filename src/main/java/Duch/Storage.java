@@ -75,12 +75,18 @@ public class Storage {
             Scanner scanner = new Scanner(Files.newBufferedReader(path));
             while (scanner.hasNextLine()) {
                 String str = scanner.nextLine();
-                if (str.length() == 0) break;
+                if (str.length() == 0) {
+                    break;
+                }
                 
                 char type = str.charAt(0);
-                if (type == 'T') parseTodo(str);
-                else if (type == 'E') parseEvent(str);
-                else if (type == 'D') parseDeadline(str);
+                if (type == 'T') {
+                    parseTodo(str);
+                } else if (type == 'E') {
+                    parseEvent(str);
+                } else if (type == 'D') {
+                    parseDeadline(str);
+                }
             }
             scanner.close();
         } catch (IOException e) {
