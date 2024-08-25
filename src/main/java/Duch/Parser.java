@@ -61,7 +61,9 @@ public class Parser {
      * @throws DuchException If command is invalid
      */
     public void todo(String[] arr) throws DuchException {
-        if (arr.length == 1) throw new DuchException("The description of todo cannot be empty");
+        if (arr.length == 1) {
+            throw new DuchException("The description of todo cannot be empty");
+        }
         
         Todo t = new Todo(concat(arr, 1, arr.length));
         tasks.add(t);
@@ -76,11 +78,15 @@ public class Parser {
      */
     public void deadline(String[] arr) throws DuchException {
         int byIdx = find(arr, "/by");
-        if (byIdx == -1) throw new DuchException("/by date is not found");
+        if (byIdx == -1) {
+            throw new DuchException("/by date is not found");
+        }
         
         String task = concat(arr, 1, byIdx);
         String by = concat(arr, byIdx + 1, arr.length);
-        if (task.equals("")) throw new DuchException("The description of deadline cannot be empty");
+        if (task.equals("")) {
+            throw new DuchException("The description of deadline cannot be empty");
+        }
         
         Task t = new Deadline(task, by);
         tasks.add(t);
@@ -96,12 +102,16 @@ public class Parser {
     public void event(String[] arr) throws DuchException {
         int fromIdx = find(arr, "/from");
         int toIdx = find(arr, "/to");
-        if (fromIdx == -1 || toIdx == -1) throw new DuchException("/from date (and/or) /to date is not found");
+        if (fromIdx == -1 || toIdx == -1) {
+            throw new DuchException("/from date (and/or) /to date is not found");
+        }
 
         String task = concat(arr, 1, fromIdx);
         String from = concat(arr, fromIdx + 1, toIdx);
         String to = concat(arr, toIdx + 1, arr.length);
-        if (task.equals("")) throw new DuchException("The description of event cannot be empty");
+        if (task.equals("")) {
+            throw new DuchException("The description of event cannot be empty");
+        }
         
         Event t = new Event(task, from, to);
         tasks.add(t);
@@ -160,15 +170,23 @@ public class Parser {
     public void handleCommand(String cmd) throws DuchException {
         String[] splitted = cmd.split(" ");
         String action = splitted[0];
-        if (action.equals("list")) list(splitted);
-        else if (action.equals("todo")) todo(splitted);
-        else if (action.equals("deadline")) deadline(splitted);
-        else if (action.equals("event")) event(splitted);
-        else if (action.equals("mark")) mark(splitted);
-        else if (action.equals("unmark")) unmark(splitted);
-        else if (action.equals("delete")) delete(splitted);
-        else throw new DuchException("Invalid Command. Please re-enter command");
-        
+        if (action.equals("list")) {
+            list(splitted);
+        } else if (action.equals("todo")) {
+            todo(splitted);
+        } else if (action.equals("deadline")) {
+            deadline(splitted);
+        } else if (action.equals("event")) {
+            event(splitted);
+        } else if (action.equals("mark")) {
+            mark(splitted);
+        } else if (action.equals("unmark")) {
+            unmark(splitted);
+        } else if (action.equals("delete")) {
+            delete(splitted);
+        } else {
+            throw new DuchException("Invalid Command. Please re-enter command");
+        }
     }
 
     /*public static void main(String[] args) {

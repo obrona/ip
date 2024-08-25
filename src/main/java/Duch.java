@@ -23,7 +23,9 @@ public class Duch {
         System.out.println("Please input your dates in d/MM/yyyy HHmm");
         while (true) {
             String text = scanner.nextLine();
-            if (text.equals("bye")) break;
+            if (text.equals("bye")) {
+                break;
+            }
             
             try {
                 duch.commandHandler.handleCommand(text);
