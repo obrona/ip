@@ -1,6 +1,9 @@
 package Duch;
 
-import Duch.Task.*;
+import Duch.Task.Task;
+import Duch.Task.Todo;
+import Duch.Task.Event;
+import Duch.Task.Deadline;
 
 /**
  * Parse commands received from the CLI
@@ -8,7 +11,7 @@ import Duch.Task.*;
  */
 public class Parser {
     TaskList tasks = new TaskList();
-    Ui p = new Ui();
+    Ui ui = new Ui();
 
     public Parser(TaskList lst) {
         tasks = lst;
@@ -38,20 +41,20 @@ public class Parser {
         return -1;
     }
 
-    private void printAddTask(Task t) {
-        p.print("Got it. I've added this task\n  " + t.toString() + "\nNow you have " + tasks.size() + " tasks in the list\n");
+    private String printAddTask(Task t) {
+        return ui.print("Got it. I've added this task\n  " + t.toString() + "\nNow you have " + tasks.size() + " tasks in the list\n");
     }
 
-    private void printMark(Task t) {
-        p.print("Nice! I have marked this task as done:\n  " + t.toString()+ "\n");
+    private String printMark(Task t) {
+        return ui.print("Nice! I have marked this task as done:\n  " + t.toString()+ "\n");
     }
 
-    private void printUnMark(Task t) {
-        p.print("OK, I've marked this task as not done yet:\n  " + t.toString() + "\n");
+    private String printUnMark(Task t) {
+        return ui.print("OK, I've marked this task as not done yet:\n  " + t.toString() + "\n");
     }
 
-    private void printDelete(Task t) {
-        p.print("Noted. I have removed this task\n  " + t.toString() + "\n");
+    private String printDelete(Task t) {
+        return ui.print("Noted. I have removed this task\n  " + t.toString() + "\n");
     }
 
     /**
@@ -60,14 +63,14 @@ public class Parser {
      * @param arr The splitted arr
      * @throws DuchException If command is invalid
      */
-    public void todo(String[] arr) throws DuchException {
+    public String todo(String[] arr) throws DuchException {
         if (arr.length == 1) {
             throw new DuchException("The description of todo cannot be empty");
         }
         
         Todo t = new Todo(concat(arr, 1, arr.length));
         tasks.add(t);
-        printAddTask(t);
+        return printAddTask(t);
     }
 
     /**
@@ -76,7 +79,7 @@ public class Parser {
      * @param arr The splitted arr
      * @throws DuchException If command is invalid
      */
-    public void deadline(String[] arr) throws DuchException {
+    public String deadline(String[] arr) throws DuchException {
         int byIdx = find(arr, "/by");
         if (byIdx == -1) {
             throw new DuchException("/by date is not found");
@@ -90,7 +93,7 @@ public class Parser {
         
         Task t = new Deadline(task, by);
         tasks.add(t);
-        printAddTask(t);
+        return printAddTask(t);
     }
 
     /**
@@ -99,7 +102,7 @@ public class Parser {
      * @param arr The splitted arr
      * @throws DuchException If command is invalid
      */
-    public void event(String[] arr) throws DuchException {
+    public String event(String[] arr) throws DuchException {
         int fromIdx = find(arr, "/from");
         int toIdx = find(arr, "/to");
         if (fromIdx == -1 || toIdx == -1) {
@@ -115,7 +118,7 @@ public class Parser {
         
         Event t = new Event(task, from, to);
         tasks.add(t);
-        printAddTask(t);
+        return printAddTask(t);
     }
 
     /**
@@ -123,12 +126,12 @@ public class Parser {
      * 
      * @param arr The splitted arr
      */
-    public void list(String[] arr) {
+    public String list(String[] arr) {
         String out = "";
         for (int i = 0; i < tasks.size(); i ++) {
             out += (i + 1) + "." + tasks.get(i).toString() + "\n";
         }
-        p.print(out);
+        return ui.print(out);
     }
 
     /**
@@ -136,11 +139,11 @@ public class Parser {
      * 
      * @param arr The splitted arr
      */
-    public void mark(String[] arr) {
+    public String mark(String[] arr) {
         int idx = Integer.parseInt(arr[1]);
         Task t = tasks.get(idx - 1);
         t.setDone(true);
-        printMark(t);
+        return printMark(t);
     }
 
     /**
@@ -148,11 +151,11 @@ public class Parser {
      * 
      * @param arr The splitted command
      */
-    public void unmark(String[] arr) {
+    public String unmark(String[] arr) {
         int idx = Integer.parseInt(arr[1]);
         Task t = tasks.get(idx - 1);
         t.setDone(false);
-        printUnMark(t);
+        return printUnMark(t);
     }
 
     /**
@@ -160,14 +163,14 @@ public class Parser {
      * 
      * @param arr The splitted command
      */
-    public void delete(String[] arr) {
+    public String delete(String[] arr) {
         int idx = Integer.parseInt(arr[1]);
         Task t = tasks.get(idx - 1);
-        printDelete(t);
         tasks.remove(idx - 1);
+        return printDelete(t);
     }
 
-    public void find(String[] arr) throws DuchException {
+    public String find(String[] arr) throws DuchException {
         if (arr.length == 1) {
             throw new DuchException("The keyword for find cannot be empty");
         }
@@ -179,37 +182,37 @@ public class Parser {
                 out += (i + 1) + "." + task.toString() + "\n";
             }
         }
-        p.print(out); 
+        return ui.print(out); 
     }
 
-    public void handleCommand(String cmd) throws DuchException {
+    /**
+     * Returns the string of the result after processing the command
+     * 
+     * @param cmd
+     * @return
+     * @throws DuchException
+     */
+    public String handleCommand(String cmd) throws DuchException {
         String[] splitted = cmd.split(" ");
         String action = splitted[0];
         if (action.equals("list")) {
-            list(splitted);
+            return list(splitted);
         } else if (action.equals("todo")) {
-            todo(splitted);
+            return todo(splitted);
         } else if (action.equals("deadline")) {
-            deadline(splitted);
+            return deadline(splitted);
         } else if (action.equals("event")) {
-            event(splitted);
+            return event(splitted);
         } else if (action.equals("mark")) {
-            mark(splitted);
+            return mark(splitted);
         } else if (action.equals("unmark")) {
-            unmark(splitted);
+            return unmark(splitted);
         } else if (action.equals("delete")) {
-            delete(splitted);
+            return delete(splitted);
         } else if (action.equals("find")) {
-            find(splitted);
+            return find(splitted);
         } else {
             throw new DuchException("Invalid Command. Please re-enter command");
         }
     }
-
-    /*public static void main(String[] args) {
-        CommandHandler c = new CommandHandler();
-        c.handleCommand("event exam /from Mon /to Sun");
-    }*/
-    
-   
 }
