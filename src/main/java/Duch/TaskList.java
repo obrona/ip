@@ -1,7 +1,7 @@
 package Duch;
 
 import java.util.ArrayList;
-import Duch.Task.*;
+import Duch.Task.Task;
 
 /**
  * Stores a list of Tasks

@@ -8,7 +8,6 @@ import static org.junit.jupiter.api.Assertions.fail;
 import java.time.DateTimeException;
 
 public class DeadlineTest {
-    
     @Test
     public void testToString() {
         Deadline deadline = new Deadline("return book", "18/01/2002 1800", true);
