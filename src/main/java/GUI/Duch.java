@@ -1,6 +1,4 @@
 package GUI;
-import java.time.DateTimeException;
-import java.util.Scanner;
 
 import Duch.Parser;
 import Duch.Storage;
