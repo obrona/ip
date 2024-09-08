@@ -32,4 +32,14 @@ public class DeadlineTest {
         }
        
     }
+
+    @Test
+    public void testInputInvalidDate2() {
+        try {
+            Deadline deadline = new Deadline("return book", "18-01-2002 1800", true);
+            fail();
+        } catch (DateTimeException e) {
+            // success
+        }
+    }
 }
