@@ -41,19 +41,23 @@ public class Parser {
         return -1;
     }
 
-    private String printAddTask(Task t) {
+    private String printAddTask(Task t) {   
+        assert t != null;
         return ui.print("Got it. I've added this task\n  " + t.toString() + "\nNow you have " + tasks.size() + " tasks in the list\n");
     }
 
     private String printMark(Task t) {
+        assert t != null;
         return ui.print("Nice! I have marked this task as done:\n  " + t.toString()+ "\n");
     }
 
     private String printUnMark(Task t) {
+        assert t != null;
         return ui.print("OK, I've marked this task as not done yet:\n  " + t.toString() + "\n");
     }
 
     private String printDelete(Task t) {
+        assert t != null;
         return ui.print("Noted. I have removed this task\n  " + t.toString() + "\n");
     }
 

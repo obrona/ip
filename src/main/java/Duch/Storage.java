@@ -73,6 +73,9 @@ public class Storage {
             }
         } catch (IOException e) {System.out.println(e.getMessage());}
         
+        // make sure file exists
+        assert Files.exists(path);
+        
         // start reading from file
         try {
             Scanner scanner = new Scanner(Files.newBufferedReader(path));
