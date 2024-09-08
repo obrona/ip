@@ -35,4 +35,8 @@ public class Event extends Task {
                 : "E|0|" + task + "|" + from.toStore() + "|" + to.toStore();
     }
 
+    public Task clone() {
+        return new Event(task, from.toStore(), to.toStore());
+    }
+
 }

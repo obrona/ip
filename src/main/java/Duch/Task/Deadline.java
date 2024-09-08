@@ -31,5 +31,9 @@ public class Deadline extends Task {
         return (isDone) ? "D|1|" + task + "|" + by.toStore() : "D|0|" + task + "|" + by.toStore();
     }
 
+    public Task clone() {
+        return new Deadline(task, by.toStore());
+    }
+
 
 }

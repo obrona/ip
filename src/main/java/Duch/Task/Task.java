@@ -22,7 +22,16 @@ public abstract class Task {
         return task;
     }
 
+    public boolean getIsDone() {
+        return isDone;
+    }
+
     public abstract String toString();
 
     public abstract String toStore();
+
+    /**
+     * Returns a clone of the object, for keeping track of history when undoing
+     */
+    public abstract Task clone();
 }
