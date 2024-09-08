@@ -6,8 +6,8 @@ import java.time.format.DateTimeFormatter;
 // dates inputted must be in the format d/MM/yyyy HHmm
 public class Date {
     LocalDateTime dateTime;
-    DateTimeFormatter inputFormatter = DateTimeFormatter.ofPattern("d/MM/yyyy HHmm");
-    DateTimeFormatter outputFormatter = DateTimeFormatter.ofPattern("MMM-dd-yyyy HHmm");
+    static final DateTimeFormatter inputFormatter = DateTimeFormatter.ofPattern("d/MM/yyyy HHmm");
+    static final DateTimeFormatter outputFormatter = DateTimeFormatter.ofPattern("MMM-dd-yyyy HHmm");
 
     public Date(String str) {
         dateTime = LocalDateTime.parse(str, inputFormatter);
