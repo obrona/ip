@@ -61,6 +61,7 @@ public class MainWindow extends AnchorPane {
             duch.save();
             Platform.exit();
         }
+        
         String response = duch.getResponse(input);
         dialogContainer.getChildren().addAll(
                 DialogBox.getUserDialog(input, userImage),

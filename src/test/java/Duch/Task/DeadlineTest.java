@@ -39,7 +39,7 @@ public class DeadlineTest {
             Deadline deadline = new Deadline("return book", "18-01-2002 1800", true);
             fail();
         } catch (DateTimeException e) {
-            // success
+            // This means a DateTimeException is thrown, which is the expected behaviour
         }
     }
 }
