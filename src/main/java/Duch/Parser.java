@@ -5,11 +5,16 @@ import Duch.Task.Todo;
 import Duch.Task.Event;
 import Duch.Task.Deadline;
 
+import Duch.History.*;
+
+import java.util.ArrayList;
+
 /**
  * Parse commands received from the CLI
  * 
  */
 public class Parser {
+    ArrayList<History> historyList = new ArrayList<History>();
     TaskList tasks = new TaskList();
     Ui ui = new Ui();
 
@@ -54,7 +59,7 @@ public class Parser {
         return ui.print("Nice! I have marked this task as done:\n  " + t.toString()+ "\n");
     }
 
-    private String printUnMark(Task t) {
+    private String printUnmark(Task t) {
         assert t != null;
         return ui.print("OK, I've marked this task as not done yet:\n  " + t.toString() + "\n");
     }
@@ -76,7 +81,10 @@ public class Parser {
         }
         
         Todo t = new Todo(concat(arr, 1, arr.length));
-        tasks.add(t);
+        tasks.addTask(t);
+        
+        historyList.add(new AddTaskHistory(tasks));
+        
         return printAddTask(t);
     }
 
@@ -99,7 +107,10 @@ public class Parser {
         }
         
         Task t = new Deadline(task, by);
-        tasks.add(t);
+        tasks.addTask(t);
+        
+        historyList.add(new AddTaskHistory(tasks));
+        
         return printAddTask(t);
     }
 
@@ -124,7 +135,10 @@ public class Parser {
         }
         
         Event t = new Event(task, from, to);
-        tasks.add(t);
+        tasks.addTask(t);
+        
+        historyList.add(new AddTaskHistory(tasks));
+        
         return printAddTask(t);
     }
 
@@ -138,6 +152,9 @@ public class Parser {
         for (int i = 0; i < tasks.size(); i ++) {
             out += (i + 1) + "." + tasks.get(i).toString() + "\n";
         }
+        
+        historyList.add(new NoChangeHistory());
+        
         return ui.print(out);
     }
 
@@ -146,10 +163,16 @@ public class Parser {
      * 
      * @param arr The splitted arr
      */
-    public String mark(String[] arr) {
-        int idx = Integer.parseInt(arr[1]);
-        Task t = tasks.get(idx - 1);
-        t.setDone(true);
+    public String mark(String[] arr) throws DuchException {
+        int idx = Integer.parseInt(arr[1]) - 1;
+        Task t = tasks.get(idx);
+        if (t.getIsDone()) {
+            throw new DuchException("The task is marked already");
+        }
+        tasks.markTask(idx);
+        
+        historyList.add(new MarkHistory(t));
+        
         return printMark(t);
     }
 
@@ -158,11 +181,17 @@ public class Parser {
      * 
      * @param arr The splitted command
      */
-    public String unmark(String[] arr) {
-        int idx = Integer.parseInt(arr[1]);
-        Task t = tasks.get(idx - 1);
-        t.setDone(false);
-        return printUnMark(t);
+    public String unmark(String[] arr) throws DuchException {
+        int idx = Integer.parseInt(arr[1]) - 1;
+        Task t = tasks.get(idx);
+        if (!t.getIsDone()) {
+            throw new DuchException("The task is unmarked already");
+        }
+        tasks.unmarkTask(idx);
+        
+        historyList.add(new UnmarkHistory(t));
+        
+        return printUnmark(t);
     }
 
     /**
@@ -171,9 +200,13 @@ public class Parser {
      * @param arr The splitted command
      */
     public String delete(String[] arr) {
-        int idx = Integer.parseInt(arr[1]);
-        Task t = tasks.get(idx - 1);
-        tasks.remove(idx - 1);
+        int idx = Integer.parseInt(arr[1]) - 1;
+        Task t = tasks.get(idx);
+        tasks.deleteTask(idx);
+        
+        System.out.println(idx);
+        historyList.add(new DeleteTaskHistory(tasks, t, idx));
+        
         return printDelete(t);
     }
 
@@ -189,7 +222,32 @@ public class Parser {
                 out += (i + 1) + "." + task.toString() + "\n";
             }
         }
+
+        historyList.add(new NoChangeHistory());
+        
         return ui.print(out); 
+    }
+
+    /**
+     * Undo the last executed command
+     * 
+     * @return the updated list of tasks
+     * @throws DuchException
+     */
+    public String undo() throws DuchException {
+        if (historyList.size() == 0) {
+            throw new DuchException("No commands to undo");
+        }
+
+        History hist = historyList.remove(historyList.size() - 1);
+        hist.undo();
+
+        String out = "Undo successful\nHere are your updated task\n";
+        for (int i = 0; i < tasks.size(); i ++) {
+            out += (i + 1) + "." + tasks.get(i).toString() + "\n";
+        }
+
+        return out;
     }
 
     /**
@@ -218,6 +276,8 @@ public class Parser {
             return delete(splitted);
         } else if (action.equals("find")) {
             return find(splitted);
+        } else if (action.equals("undo")) {
+            return undo();
         } else {
             throw new DuchException("Invalid Command. Please re-enter command");
         }

@@ -25,7 +25,7 @@ public class DeadlineTest {
     @Test
     public void testInputInvalidDate() {
         try {
-            Deadline deadline = new Deadline("return book", "12/30/2002 1800", true);
+            new Deadline("return book", "12/30/2002 1800", true);
             fail();
         } catch(DateTimeException e) {
             // success
@@ -36,7 +36,7 @@ public class DeadlineTest {
     @Test
     public void testInputInvalidDate2() {
         try {
-            Deadline deadline = new Deadline("return book", "18-01-2002 1800", true);
+            new Deadline("return book", "18-01-2002 1800", true);
             fail();
         } catch (DateTimeException e) {
             // This means a DateTimeException is thrown, which is the expected behaviour

@@ -31,5 +31,11 @@ public class Todo extends Task {
         return (isDone) ? "T|1|" + task : "T|0|" + task;
     }
 
+    public Task clone() {
+        return new Todo(task, isDone);
+    }
+
+
+
     
 }

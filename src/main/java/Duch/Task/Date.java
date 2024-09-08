@@ -24,7 +24,7 @@ public class Date {
 
     
     /**
-     * Outputs the date formatted in d/MM/yyyy HHmm.
+     * Outputs the date formatted in d/MM/yyyy HHmm, i.e in the original format the user inputs with
      * For storage
      * 
      * @return The string
