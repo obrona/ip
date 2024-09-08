@@ -242,6 +242,10 @@ public class Parser {
         History hist = historyList.remove(historyList.size() - 1);
         hist.undo();
 
+        if (hist instanceof NoChangeHistory) {
+            return "Undo successful\nNo change to your task list\n";
+        }
+
         String out = "Undo successful\nHere are your updated task\n";
         for (int i = 0; i < tasks.size(); i ++) {
             out += (i + 1) + "." + tasks.get(i).toString() + "\n";
