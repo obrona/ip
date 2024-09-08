@@ -4,8 +4,6 @@ package Duch;
  * Handles formatting text that needs to be printed on stdout
  */
 public class Ui {
-    String space = "    ";
-    
     /**
      * Doesnt do anything, but if I remove this method, have to refactor lot of code.
      *  

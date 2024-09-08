@@ -13,7 +13,7 @@ public abstract class Task {
         this.task = task;
         isDone = false;
     }
-
+    
     public void setDone(boolean val) {
         isDone = val;
     }

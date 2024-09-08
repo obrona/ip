@@ -28,8 +28,11 @@ public class Parser {
     public String concat(String[] arr, int s, int e) {
         String out = "";
         for (int i = s; i < e; i ++) {
-            if (out.equals("")) out += arr[i];
-            else out += " " + arr[i];
+            if (out.equals("")) {
+                out += arr[i];
+            } else {
+                out += " " + arr[i];
+            }
         }
         return out;
     }
