@@ -5,7 +5,12 @@ import Duch.Task.Todo;
 import Duch.Task.Event;
 import Duch.Task.Deadline;
 
-import Duch.History.*;
+import Duch.History.History;
+import Duch.History.MarkHistory;
+import Duch.History.NoChangeHistory;
+import Duch.History.UnmarkHistory;
+import Duch.History.DeleteTaskHistory;
+import Duch.History.AddTaskHistory;
 
 import java.util.ArrayList;
 
