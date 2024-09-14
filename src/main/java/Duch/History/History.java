@@ -5,7 +5,7 @@ package Duch.History;
  */
 public abstract class History {
     /**
-     * Contains the code to undo the command
+     * Contains the code to undo the command.
      */
     public abstract void undo();
 }

@@ -15,7 +15,7 @@ public class DeleteTaskHistory extends History {
     }
 
     /**
-     * Contains the code to undo the command
+     * Contains the code to undo the command.
      */
     public void undo() {
         tasklist.add(idx, task);

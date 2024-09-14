@@ -28,7 +28,7 @@ public class Storage {
     /**
      * Parse a stored todo string
      * 
-     * @param str The stored todo
+     * @param str The stored todo.
      */
     public void parseTodo(String str) {
         // "|" is one of the special expressions in regex, so need \\
@@ -39,7 +39,7 @@ public class Storage {
     /**
      * Parse a stored deadline string
      * 
-     * @param str The stored deadline string
+     * @param str The stored deadline string.
      * 
      */
     public void parseDeadline(String str) {
@@ -50,7 +50,7 @@ public class Storage {
     /**
      * Parse a stored event string
      * 
-     * @param str The stored event string
+     * @param str The stored event string.
      */
     public void parseEvent(String str) {
         String[] splitted = str.split("\\|");
@@ -58,7 +58,7 @@ public class Storage {
     }
 
     /**
-     * Open the ./data/text file, where the tasks will be stored
+     * Open the ./data/text file, where the tasks will be stored.
      */
     public void openFile() {
         Path path = Paths.get(pathString);

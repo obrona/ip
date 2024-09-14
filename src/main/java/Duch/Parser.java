@@ -15,7 +15,7 @@ import Duch.History.AddTaskHistory;
 import java.util.ArrayList;
 
 /**
- * Parse commands received from the CLI
+ * Parse commands received from the CLI.
  * 
  */
 public class Parser {
@@ -28,12 +28,12 @@ public class Parser {
     }
 
     /**
-     * concat strings in indexes [s, e), with spaces between the words
+     * Concat strings in indexes [s, e), with spaces between the words.
      * 
-     * @param arr the array
-     * @param s start index
-     * @param e end index
-     * @return concated string
+     * @param arr the array.
+     * @param s start index.
+     * @param e end index.
+     * @return concated string.
      */
     public String concat(String[] arr, int s, int e) {
         String out = "";
@@ -77,8 +77,8 @@ public class Parser {
     /**
      * Parse a todo command
      * 
-     * @param arr The splitted arr
-     * @throws DuchException If command is invalid
+     * @param arr The splitted arr.
+     * @throws DuchException If command is invalid.
      */
     public String todo(String[] arr) throws DuchException {
         if (arr.length == 1) {
@@ -96,8 +96,8 @@ public class Parser {
     /**
      * parse a deadline command 
      * 
-     * @param arr The splitted arr
-     * @throws DuchException If command is invalid
+     * @param arr The splitted arr.
+     * @throws DuchException If command is invalid.
      */
     public String deadline(String[] arr) throws DuchException {
         int byIdx = find(arr, "/by");
@@ -122,8 +122,8 @@ public class Parser {
     /**
      * Parse an event command
      * 
-     * @param arr The splitted arr
-     * @throws DuchException If command is invalid
+     * @param arr The splitted arr.
+     * @throws DuchException If command is invalid.
      */
     public String event(String[] arr) throws DuchException {
         int fromIdx = find(arr, "/from");
@@ -150,7 +150,7 @@ public class Parser {
     /**
      * Parse a list command
      * 
-     * @param arr The splitted arr
+     * @param arr The splitted arr.
      */
     public String list(String[] arr) {
         String out = "";
@@ -166,7 +166,7 @@ public class Parser {
     /**
      * Parse a mark command
      * 
-     * @param arr The splitted arr
+     * @param arr The splitted arr.
      */
     public String mark(String[] arr) throws DuchException {
         int idx = Integer.parseInt(arr[1]) - 1;
@@ -182,9 +182,9 @@ public class Parser {
     }
 
     /**
-     * Parse a unmark command
+     * Parse a unmark command.
      * 
-     * @param arr The splitted command
+     * @param arr The splitted command.
      */
     public String unmark(String[] arr) throws DuchException {
         int idx = Integer.parseInt(arr[1]) - 1;
@@ -200,9 +200,9 @@ public class Parser {
     }
 
     /**
-     * Parse a delete command
+     * Parse a delete command.
      * 
-     * @param arr The splitted command
+     * @param arr The splitted command.
      */
     public String delete(String[] arr) {
         int idx = Integer.parseInt(arr[1]) - 1;
@@ -234,9 +234,9 @@ public class Parser {
     }
 
     /**
-     * Undo the last executed command
+     * Undo the last executed command.
      * 
-     * @return the updated list of tasks
+     * @return the updated list of tasks.
      * @throws DuchException
      */
     public String undo() throws DuchException {
@@ -260,10 +260,10 @@ public class Parser {
     }
 
     /**
-     * Returns the string of the result after processing the command
+     * Returns the string of the result after processing the command.
      * 
-     * @param cmd
-     * @return
+     * @param cmd 
+     * @return 
      * @throws DuchException
      */
     public String handleCommand(String cmd) throws DuchException {

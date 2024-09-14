@@ -10,7 +10,7 @@ public class MarkHistory extends History {
     }
 
     /**
-     * Contains the code to undo the command
+     * Contains the code to undo the command.
      */
     public void undo() {
         task.setDone(false);

@@ -16,7 +16,7 @@ public class Deadline extends Task {
     /**
      * Converts the deadline object to a string to be printed
      * 
-     * @return The string
+     * @return The string.
      */
     public String toString() {
         return (isDone) ? "[D][X] " + task + " (by: " + by.toString() + ")" : "[D][ ] " + task + " (by: " + by.toString() + ")";
@@ -25,7 +25,7 @@ public class Deadline extends Task {
     /**
      * Converts the deadline object to a string to be stored
      * 
-     * @return The string
+     * @return The string.
      */
     public String toStore() {
         return (isDone) ? "D|1|" + task + "|" + by.toStore() : "D|0|" + task + "|" + by.toStore();

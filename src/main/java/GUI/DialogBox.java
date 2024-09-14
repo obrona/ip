@@ -49,7 +49,7 @@ public class DialogBox extends HBox {
     }
 
     /**
-     * Returns a user dialog box
+     * Returns a user dialog box.
      * 
      * @param text
      * @param img
@@ -60,7 +60,7 @@ public class DialogBox extends HBox {
     }
 
     /**
-     * Returns a Duch dialog box
+     * Returns a Duch dialog box.
      * 
      * @param text
      * @param img

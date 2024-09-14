@@ -25,8 +25,9 @@ public class MainWindow extends AnchorPane {
 
     private Image userImage = new Image(this.getClass().getResourceAsStream("/images/DaUser.png"));
     private Image dukeImage = new Image(this.getClass().getResourceAsStream("/images/DaDuke.png"));
+    
     /**
-     * Automatically called. Ensures scroll pane scrolls to bottom when new messages are added
+     * Automatically called. Ensures scroll pane scrolls to bottom when new messages are added.
      * 
      */
     @FXML
@@ -35,7 +36,7 @@ public class MainWindow extends AnchorPane {
     }
 
     /**
-     * Outputs the welcome message
+     * Outputs the welcome message.
      */
     public void welcome() {
         dialogContainer.getChildren().addAll(
@@ -44,7 +45,7 @@ public class MainWindow extends AnchorPane {
     }
 
     /** 
-     * Injects the Duke instance 
+     * Injects the Duke instance.
      */
     public void setDuch(Duch duch) {
         this.duch = duch;

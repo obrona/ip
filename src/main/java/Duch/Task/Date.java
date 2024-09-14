@@ -16,7 +16,7 @@ public class Date {
     /**
      * Outputs the date formatted in MMM-dd-yyyy HHmm.
      * 
-     * @return The string
+     * @return The string.
      */
     public String toString() {
         return dateTime.format(outputFormatter);
@@ -25,9 +25,9 @@ public class Date {
     
     /**
      * Outputs the date formatted in d/MM/yyyy HHmm, i.e in the original format the user inputs with
-     * For storage
+     * for storage.
      * 
-     * @return The string
+     * @return The string.
      */
     public String toStore() {
         return dateTime.format(inputFormatter);
