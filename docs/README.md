@@ -1,6 +1,6 @@
 # Duch User Guide
 
-### A ChatBot to manage your life
+### Duch, A ChatBot to manage your life
 
 ![alt text](./Ui.png)
 
