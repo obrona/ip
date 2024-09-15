@@ -100,6 +100,9 @@ public class Storage {
         } 
     }
 
+    /**
+     * Serialises the tasks into strings and stores it in the ./data/tasks file.
+     */
     public void saveTasks() {
         Path path = Paths.get(pathString);
         try {

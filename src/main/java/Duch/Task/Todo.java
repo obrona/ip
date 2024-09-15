@@ -1,7 +1,7 @@
 package duch.task;
 
 /**
- * Encapsulates a Todo task
+ * Encapsulates a Todo task.
  */
 public class Todo extends Task {
 
@@ -14,7 +14,7 @@ public class Todo extends Task {
     }
 
     /**
-     * Converts the todo object to a string to be printed
+     * Converts the todo object to a string to be printed.
      * 
      * @return The string.
      */
@@ -23,19 +23,11 @@ public class Todo extends Task {
     }
 
     /**
-     * Converts the todo object to a string for storage
+     * Converts the todo object to a string for storage.
      * 
      * @return The string.
      */
     public String toStore() {
         return (isDone) ? "T|1|" + task : "T|0|" + task;
     }
-
-    public Task clone() {
-        return new Todo(task, isDone);
-    }
-
-
-
-    
 }

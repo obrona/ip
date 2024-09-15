@@ -7,7 +7,7 @@ public class Ui {
     /**
      * Doesnt do anything, added because its was required.
      *  
-     * @param text Text you want to print
+     * @param text Text you want to print.
      */
     public String print(String text) {
         return text;

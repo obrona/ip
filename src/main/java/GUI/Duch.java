@@ -18,6 +18,12 @@ public class Duch {
         storage.openFile();
     }
 
+    /**
+     * Gets the response to the user input.
+     * 
+     * @param cmd.
+     * @return
+     */
     public String getResponse(String cmd) {
         try {
             return parser.handleCommand(cmd);

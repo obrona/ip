@@ -14,7 +14,7 @@ public class Deadline extends Task {
     }
 
     /**
-     * Converts the deadline object to a string to be printed
+     * Converts the deadline object to a string to be printed.
      * 
      * @return The string.
      */
@@ -23,17 +23,11 @@ public class Deadline extends Task {
     }
 
     /**
-     * Converts the deadline object to a string to be stored
+     * Converts the deadline object to a string to be stored.
      * 
      * @return The string.
      */
     public String toStore() {
         return (isDone) ? "D|1|" + task + "|" + by.toStore() : "D|0|" + task + "|" + by.toStore();
     }
-
-    public Task clone() {
-        return new Deadline(task, by.toStore());
-    }
-
-
 }

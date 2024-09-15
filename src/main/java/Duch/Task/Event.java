@@ -16,7 +16,7 @@ public class Event extends Task {
     }
 
     /**
-     * Converts the event object to a string to be printed
+     * Converts the event object to a string to be printed.
      * 
      * @return The string.
      */
@@ -26,7 +26,7 @@ public class Event extends Task {
     }
 
     /**
-     * Converts the event object to a string to be stored
+     * Converts the event object to a string to be stored.
      * 
      * @return The string.
      */
@@ -34,9 +34,4 @@ public class Event extends Task {
         return (isDone) ? "E|1|" + task + "|" + from.toStore() + "|" + to.toStore() 
                 : "E|0|" + task + "|" + from.toStore() + "|" + to.toStore();
     }
-
-    public Task clone() {
-        return new Event(task, from.toStore(), to.toStore());
-    }
-
 }
