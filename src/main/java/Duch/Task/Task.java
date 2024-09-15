@@ -1,4 +1,4 @@
-package Duch.Task;
+package duch.task;
 
 public abstract class Task {
     String task;
@@ -31,7 +31,7 @@ public abstract class Task {
     public abstract String toStore();
 
     /**
-     * Returns a clone of the object, for keeping track of history when undoing
+     * Returns a clone of the object, for keeping track of history when undoing.
      */
     public abstract Task clone();
 }

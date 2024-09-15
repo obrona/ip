@@ -1,18 +1,17 @@
-package Duch;
-
-import Duch.Task.Task;
-import Duch.Task.Todo;
-import Duch.Task.Event;
-import Duch.Task.Deadline;
-
-import Duch.History.History;
-import Duch.History.MarkHistory;
-import Duch.History.NoChangeHistory;
-import Duch.History.UnmarkHistory;
-import Duch.History.DeleteTaskHistory;
-import Duch.History.AddTaskHistory;
+package duch;
 
 import java.util.ArrayList;
+
+import duch.history.AddTaskHistory;
+import duch.history.DeleteTaskHistory;
+import duch.history.History;
+import duch.history.MarkHistory;
+import duch.history.NoChangeHistory;
+import duch.history.UnmarkHistory;
+import duch.task.Deadline;
+import duch.task.Event;
+import duch.task.Task;
+import duch.task.Todo;
 
 /**
  * Parse commands received from the CLI.
@@ -236,7 +235,7 @@ public class Parser {
     /**
      * Undo the last executed command.
      * 
-     * @return the updated list of tasks.
+     * @return the updated list of tasks, in a string to be displayed.
      * @throws DuchException
      */
     public String undo() throws DuchException {

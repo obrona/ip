@@ -1,9 +1,9 @@
-package GUI;
+package gui;
 
-import Duch.Parser;
-import Duch.Storage;
-import Duch.TaskList;
-import Duch.Ui;
+import duch.Parser;
+import duch.Storage;
+import duch.Ui;
+import duch.TaskList;
 
 
 

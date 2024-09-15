@@ -1,8 +1,9 @@
-package Duch;
-
-import Duch.Task.*;
+package duch;
 
 import org.junit.jupiter.api.Test;
+
+import duch.task.Task;
+
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 

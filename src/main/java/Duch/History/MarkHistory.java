@@ -1,6 +1,6 @@
-package Duch.History;
+package duch.history;
 
-import Duch.Task.Task;
+import duch.task.Task;
 
 public class MarkHistory extends History {
     private Task task;

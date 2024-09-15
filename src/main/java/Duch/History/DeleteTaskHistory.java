@@ -1,7 +1,7 @@
-package Duch.History;
+package duch.history;
 
-import Duch.Task.Task;
-import Duch.TaskList;
+import duch.TaskList;
+import duch.task.Task;
 
 public class DeleteTaskHistory extends History {
     Task task;

@@ -1,11 +1,11 @@
-package Duch;
+package duch;
 
 /**
  * Handles formatting text that needs to be printed on stdout
  */
 public class Ui {
     /**
-     * Doesnt do anything, but if I remove this method, have to refactor lot of code.
+     * Doesnt do anything, added because its was required.
      *  
      * @param text Text you want to print
      */

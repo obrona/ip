@@ -1,4 +1,4 @@
-package Duch.History;
+package duch.history;
 
 public class NoChangeHistory extends History {
     /**

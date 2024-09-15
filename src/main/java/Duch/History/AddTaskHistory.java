@@ -1,6 +1,6 @@
-package Duch.History;
+package duch.history;
 
-import Duch.TaskList;
+import duch.TaskList;
 
 public class AddTaskHistory extends History {
     private TaskList tasklist;

@@ -1,4 +1,4 @@
-package Duch.Task;
+package duch.task;
 
 public class Event extends Task {
     Date from;

@@ -1,4 +1,4 @@
-package Duch.Task;
+package duch.task;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;

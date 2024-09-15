@@ -1,4 +1,4 @@
-package Duch.Task;
+package duch.task;
 
 public class Deadline extends Task {
     Date by;

@@ -1,4 +1,4 @@
-package Duch;
+package duch;
 
 public class DuchException extends Exception {
     DuchException(String message) {

@@ -1,4 +1,4 @@
-package Duch.Task;
+package duch.task;
 
 /**
  * Encapsulates a Todo task

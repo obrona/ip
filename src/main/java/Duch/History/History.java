@@ -1,4 +1,4 @@
-package Duch.History;
+package duch.history;
 
 /**
  * Encapsulates a command history

@@ -1,4 +1,4 @@
-package Duch;
+package duch;
 
 import org.junit.jupiter.api.Test;
 

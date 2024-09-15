@@ -1,4 +1,4 @@
-package Duch;
+package duch;
 
 import java.io.IOException;
 import java.nio.file.Files;
@@ -7,10 +7,10 @@ import java.nio.file.Paths;
 import java.nio.file.StandardOpenOption;
 import java.util.Scanner;
 
-import Duch.Task.Task;
-import Duch.Task.Todo;
-import Duch.Task.Event;
-import Duch.Task.Deadline;
+import duch.task.Deadline;
+import duch.task.Event;
+import duch.task.Task;
+import duch.task.Todo;
 
 
 /**
