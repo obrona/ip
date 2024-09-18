@@ -61,6 +61,8 @@ public class MainWindow extends AnchorPane {
         if (input.equals("bye")) {
             duch.save();
             Platform.exit();
+        } else if (input.equals("")) {
+           return;
         }
         
         String response = duch.getResponse(input);
