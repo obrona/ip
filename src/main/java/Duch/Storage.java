@@ -111,7 +111,7 @@ public class Storage {
             for (Task task : tasks) {
                 Files.write(path, (task.toStore() + "\n").getBytes(), StandardOpenOption.APPEND);
             }
-        } catch(IOException e) {System.out.println(e.getMessage());}
+        } catch (IOException e) {System.out.println(e.getMessage());}
 
     }
 }
