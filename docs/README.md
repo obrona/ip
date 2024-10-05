@@ -6,8 +6,23 @@
 
 Having trouble with all the endless tasks in your life ? Duch will manage them for you.
 
-## Feature 1: Adding Deadline
+## All commands
+[deadline](#deadline)<br/>
+[todo](#todo)<br/>
+[event](#event)<br/>
+[list](#list)<br/>
+[mark](#mark-and-unmark)<br/>
+[unmark](#mark-and-unmark)<br/>
+[find](#find)<br/>
+[undo](#undo)<br/>
 
+## Important
+[Exiting safely](#important-to-close-duch)
+
+## Format of dates
+All dates need to be in the format `DD/MM/YYYY hhmm`
+
+## Deadline
 
 You can add a deadline task. It is a special task that has a date, which is its deadline. The format of the date has to be in `DD/MM/YYYY hhmm`. Example: `12/02/2002 1800`.
 
@@ -17,9 +32,7 @@ Example: `deadline hw /by 12/01/2002 1800`
 
 If successful, Duch will acknowledge the creating of a new Deadline task
 
-![alt text](./Deadline.png)
-
-## Feature 2: Adding Todo
+## Todo
 
 A todo task is simply a description of a task. There are no dates whatsover
 
@@ -29,9 +42,7 @@ Example: `todo cook dinner`
 
 If successful, Duch will acknowledge the creation of a new Todo task
 
-![alt text](./Todo.png)
-
-## Feature 3: Adding Event
+## Event
 
 An event task is an event with a from and to date
 
@@ -41,39 +52,36 @@ Example: `event rag day /from 12/01/2002 1200 /to 12/02/2002 1200`
 
 If successful, Duch will acknowledge the creation of a new Event task
 
-![alt text](./Event.png)
-
-## Feature 5: List
+## List
 
 By typing in `list`, Duch will display all your tasks for you
 
-![alt text](./List.png)
-
-## Feature 6: Mark and Unmark
+## Mark and Unmark
 
 Duch can help you mark and unmark events. First, get the index of the task using list, then type `mark <index of task>`. To unmark, simply type `unmark <index of task>`
 
+Example: `mark 3` `unmark 4`
+
 If mark is successful, Duch will acknowledge it
 
-![alt text](./Mark.png)
-
-## Feature 7: Find
+## Find
 
 Duch can help you find tasks that contain a keywork. Simply type `find <keyword>` and Duch will list all tasks containing that keyword
 
-![alt text](./Find.png)
+Example: `find cs2103t`
 
-If successful, Duch will acknowledge it
+If successful, Duch will acknowledge it, and list all tasks containing that keyword.
 
 
 
-## Feature 8: Delete
+## Delete
 
 Duch can help you delete tasks. Simply type `delete <index of task you want to delete>`
 
-![alt text](./Delete.png)
+Example: `delete 2`
 
-## Feature 9: Undo
+
+## Undo
 
 Duch can undo the last executed command, if you change your mind. Simply type `undo` and that is it. 
 
@@ -83,4 +91,4 @@ If the last executed task is one of `list, find`, Duch will only acknowledge the
 
 ## Important: To close Duch
 
-To close Duch, type `bye`. Do not click `X` to close the window, otherwise Duch will not save your tasks
+To close Duch, type `bye`. Do not click `X` to close the window, otherwise Duch will not save your tasks 
