@@ -2,7 +2,7 @@
 
 ### Duch, A ChatBot to manage your life
 
-![alt text](./Ui.png)
+![alt text](docs/Ui.png)
 
 Having trouble with all the endless tasks in your life ? Duch will manage them for you.
 
